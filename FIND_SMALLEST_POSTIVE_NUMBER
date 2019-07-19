@@ -1,0 +1,16 @@
+int missingNumber(int arr[], int n) { 
+    int i,r[1000000];
+    memset(r,0,sizeof(r));
+    
+    for(i=0;i<n;i++)
+    {
+        if(arr[i]>0)
+        {
+            r[arr[i]] = 1;
+        }
+    }
+     for(i=0;i<n;i++)
+         if(r[i+1]==0)
+             return i+1;
+    return n+1;
+} 
