@@ -1,0 +1,21 @@
+int arr[1000000];
+int max_val = 0;
+void fun(Node* root,int dist)
+{
+    if(root!=NULL)
+    {
+        max_val = max(max_val,dist);
+        arr[dist]+=root->data;
+        fun(root->left,dist+1);
+        fun(root->right,dist);
+    }
+}
+void diagonalSum(Node* root)
+{
+    max_val =0;
+    memset(arr,0,sizeof(arr));
+    fun(root,0);
+    for(int i=0;i<=max_val;i++)
+        cout<<arr[i]<<" ";
+    cout<<endl;    
+}
